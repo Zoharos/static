@@ -1,0 +1,2 @@
+CREATE USER hasura WITH SUPERUSER ENCRYPTED PASSWORD 'hasuraforsuricata';
+CREATE DATABASE hasura WITH OWNER hasura;

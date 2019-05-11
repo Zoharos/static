@@ -1,0 +1,4 @@
+FROM centos/postgresql-95-centos7
+ADD hasura.sql /docker-entrypoint-initdb.d
+# RUN usermod -a -G root postgres
+# USER 26
