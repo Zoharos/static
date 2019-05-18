@@ -1,0 +1,20 @@
+FROM hasura/graphql-engine
+
+COPY gudea.css /srv/console-assets/common/css/gudea.css
+COPY neIFzCqgsI0mp9CG_oC-Nw.woff2 /srv/console-assets/common/fonts/neIFzCqgsI0mp9CG_oC-Nw.woff2
+COPY neIFzCqgsI0mp9CI_oA.woff2 /srv/console-assets/common/fonts/neIFzCqgsI0mp9CI_oA.woff2
+COPY neIIzCqgsI0mp9gz25WBFqw.woff2 /srv/console-assets/common/fonts/neIIzCqgsI0mp9gz25WBFqw.woff2
+COPY neIIzCqgsI0mp9gz25WPFqwKUQ.woff2 /srv/console-assets/common/fonts/neIIzCqgsI0mp9gz25WPFqwKUQ.woff2
+COPY main.css.gz /srv/console-assets/versioned/
+COPY main.js.gz /srv/console-assets/versioned/
+RUN cd /srv/console-assets/versioned && \
+    gzip -f main.css.gz && \
+    mv main.css.gz.gz main.css.gz && \
+    gzip -f main.js.gz && \
+    mv main.js.gz.gz main.js.gz
+
+RUN addgroup -S hasuraGroup && \
+    adduser -S hasura -G hasuraGroup && \
+    chown hasura /srv
+
+USER hasura

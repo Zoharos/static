@@ -1,3 +1,2 @@
-endpoint: https://graphql-engine-hasura1.1d35.starter-us-east-1.openshiftapps.com
-admin_secret: zohar
+endpoint: https://graphql-engine-hasura.1d35.starter-us-east-1.openshiftapps.com
 skip_update_check: "true"
